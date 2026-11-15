@@ -218,7 +218,7 @@ async function initDb(){
 /* ---------- alerts ---------- */
 function beep(){
   if(!audioCtx)return;
-  try{
+  try{if(audioCtx.state!=="running")audioCtx.resume();
     const now=audioCtx.currentTime;
     [0,0.35,0.7].forEach(off=>{
       const o=audioCtx.createOscillator(),g=audioCtx.createGain();
@@ -235,12 +235,23 @@ function fire(m,p){
   try{navigator.vibrate&&navigator.vibrate([300,150,300]);}catch(e){}
   try{if(window.Notification&&Notification.permission==="granted")new Notification("È ora di "+m.name+(state.patients.length>1?" · "+p.name:""),{body:m.dose||"Dose prevista ora"});}catch(e){}
 }
+const AL_KEY="miei-farmaci-avvisi";
+function saveAlertsPref(){try{localStorage.setItem(AL_KEY,alertsOn?"1":"0");}catch(e){}}
+async function unlockAudio(){
+  try{
+    audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state!=="running")await audioCtx.resume();
+  }catch(e){}
+}
+// iPhone sblocca l'audio solo dopo un tocco: lo riattiviamo al primo tocco di ogni apertura
+["touchend","pointerdown","keydown"].forEach(ev=>document.addEventListener(ev,()=>{if(alertsOn)unlockAudio();},{passive:true}));
 $("#alertsBtn").onclick=async()=>{
-  if(alertsOn){alertsOn=false;updateAlertsBar();return;}
-  try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();await audioCtx.resume();}catch(e){}
+  if(alertsOn){alertsOn=false;saveAlertsPref();updateAlertsBar();return;}
+  await unlockAudio();
   try{if(window.Notification&&Notification.permission==="default")await Notification.requestPermission();}catch(e){}
-  alertsOn=true;updateAlertsBar();beep();toast("Avvisi attivi");
+  alertsOn=true;saveAlertsPref();updateAlertsBar();beep();toast("Avvisi attivi");
 };
+try{if(localStorage.getItem(AL_KEY)==="1")alertsOn=true;}catch(e){}
 function updateAlertsBar(){
   $("#alertsTxt").innerHTML=alertsOn?"Avvisi <b>attivi</b> · suono e banner":"Avvisi <b>spenti</b>";
   $("#alertsBtn").textContent=alertsOn?"Spegni":"Attiva avvisi";
@@ -441,6 +452,7 @@ function tick(){
   if(!bg.classList.contains("show"))render();
 }
 loadLocal();
+updateAlertsBar();
 // don't re-fire alerts already overdue at load
 allMeds().forEach(({m})=>{const nx=nextDue(m);if(nx!=null&&nx<=Date.now())notified.add(m.id+":"+nx);});
 render();tick();setInterval(tick,15000);

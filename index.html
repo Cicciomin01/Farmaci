@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farmaci</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Farmaci">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#1f7a6d">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAOMklEQVR4Xu2da3BU5RnHn3P2muzmtkl2N/c7NwGhJEFIYiqVYkyQKURroVOxtrV2xA/YDx28ZNOZWm1nrILVtl5GQbTV0BlNwFhQQTFAQCsMyCWSG5DLbkKuu0k2u3s6Zw+EDYVk3909t83zGz8YZq/n/Pf/vP/nvO97qIwtmwBBbgSNhwW5GSgOBMWBkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHL1DeV1VSoOD+7+qflM+f0gfFEUomzj0DoFHQLgbczLXXdzHAXP1TKYcDrwzlsZmpUNSVs84wkK5X/bUk9ZjVcV9ODEXB5TH3UdtIQ6d945w4DU0f7x09ZrM32kYZhmkedCppys0qhqGA1ZPUoHBj/CDRqSj7OJOfGPGP0tQvu+x3JOv1s5KgzQZ67fiAXaXTQqzOc6mPTo5zd1xWmGIgRgetVqBgwc7TQ053kO/OKyiOoLg7PerllVkHW/uLcw2gjwDrAKiVMDbOmoHP+MLjAZpmHQIAKIpyexiFKRZ6BkCrHhkcOdQ9su/S0DtN/UF9FB5AcQROdb7pgdJsGHHCoANoCjxklcHFsBVFqdNChNreNfBB29DBzuE97UMTRUp0cMwRCEtNkdX55jm3pkK77crzCZXhzTIUO1oZccKIU6fXrC9JWHHeuqd9aGLQKjooDmIeW5CwuSgNVMpryggepwu6+szzU9+zO3tH3I98cQkgADMKMSgOAvJi1JYCU9HSbLhgA88owTP9pKV7SUKk4paMLfbxZ762kptRiEFx+MuGWbHV+SZlkgHarP4+hxyaAjjd/qvS7DtT9A3djicbu8hfI2SgOKbHoFFUF5hWl+RAdz/7H59cyTg9g9kJkdlpcXvahxq67Hy+4VTIoVEnKmXpUfXlWauLsuFCDzsyEAaGgXE30FR1vlEpXscdxTEVlgLTK/fONyZGwaVeYVQxiX573sI0S4FZhLf2guK4MYXGyPry7I0rZ7N1xM7D2NNP2m0/vT27IiPaz4eHFhxz3IDHFsRvLkoPcVgNmEHH7wtMjVa7dUToXjs6xyRyY9Q7V6Rtvmc+OMagbzjgExpKHGOGHJMlX4TiguK4xoa82PryrKLFqWxYFb3J4Mul3ruLsx+YbQil5vwAxcFi0Ci2FSf/oXKBUqvmO6wGSFd/deWCDL0qwKcHBI452LBqyTebZpnYsCpVXE5nx8lLbcPjQl6Wm+nOYck3vlI532TUw0UxwqrfKCk6fbZpZapeyMtyM1cchcaIj8qzNq6aA9Z+GBYvrPrPoOPVu3Oj1Ar/nxEkM7SsPDY/fnOxN6y2Xb3mLnncgyPn+seGnG7yqSMBMuOcIzda/fYP0jevkVJY9Q+Fkp6bGrMoQStYkJpZ4mDDakVW8aIUyYVVf/AwEKnZviLdn8eGhJlSVgwahSXffM/t2QJcWeUPj3XgdN+YYPOAZoQ4ytL0lgKzaZZZymHVH2itammyIl2vah8e9+fxQRL+4qgqSH6wKBlG3RIPq/4wPupU6bQDTo+CmrRciifCWRyFmTnVFZVzkwxwYiuoxLmwGVpUSgVERQ54A4sAhK04Nt2x6vE7y68cwYQCsDWCOkaAA8ovWnX7eTZ7CxNYwlAcuYkmy+rK4pzZ186TqRgcHTDaAwoNvyePT9iFUo6xhi72WrEwTfRwE8f6wqLqikqVYnIbUaFm9dG6i51+J6+F7j6w00tjIkuT2aGoME308BGHIVJnWV15z8IlN/71RmWCcRl0HgBNLJ8/b35xXR5OjGB1r6QpF/+lJUzEcdctt1oqKs3RU44qTMvB0QnDraCM5Pcc8oYyKqK7h52M7hHEOsJBHFUV6x5cVurXGTEXQ3MHMB6g5NkajtQcs+GA1D8KM3MsFZXzklL8ezhAhInVx8V6UMuvuLBL9XuHGq0Of79s0MjYOSaFVf+JX8wml75ToIry/0lSgI7WQpKhdV8bRVHcbg58I0tx5CSaLBXrSnLnBHh0TMVg7wD3CNCCzroLBjfDKBxjv3z1yIFO4RbAya/0ri8sqt/0u8CVAcB2w8wl4BoJ5mwJDGsV5rjT/WO+O9DxjZycIy5SZ6lYt+bW/BAclNg5bHGRT9tUqVSAWnlRkOttE8hGHH6FVSLk1TalqI6TF4m+X/DIo6w8Xb72b+sfmqaNQQrXNmXcArUbg4GmIDpyfwc72sCycg3isEoE2zZdDp37pd42VSuPN9m2ePfq8N3YlG8kXVYe/f4Pf7uygt9DYFrGDj6k3DY1xsCAg9ulgwbw8Hs4JiFRcQQbVomQcNvU5fFYm21r6ttso+zWIEIqQ6JbMKwvWB5sWCWCa5uODxI9SRiUGUatkraNunx3NRUMaTlHKMMqEdJsmyYbPjnU8uf/shdThGmJXoeExLFq3sLq1feGOJL4j6mEvWbrckikberxwEh7z0P7hY6vvkglyj5dvvbvG34hmjLYtmk0m2wl0jZVK+mMhKa+0QgFLeL9FcR3jqKcWU+U/Yjgyip/SKRtaozxdPVX7Tq541wff9/VH8QXR/mC70lCGRxX2qY2UGj9OXwhhqYgLfHQkVbLsa6z/eziJXERuayUzppbkuszE1h02LZpCTsbSJBr4pOI04NO+0LtqZ/sa5OCMtjJiCKejvuW3PantetF/AA3JipDhLZpeuLZ4xcsx7oPdQs3l2daxBRHWlw8F9JECfFTIWTbVKcBfcT2vWctx7r5nzJMhjji0KpUz6y5f+3iAu7mNGQfWRiEaZumxPec77LUn69rGxLmaxEhzphjaVYupwzpwnfbVK2EtIS6hpa76lqkqQxxxhym6Jh1iwslWlB8YdumndB3MvSzTdmwOmD598ntZ0UOq1MjQllZlpXHLT2SaEHxhUu2IWybcmG1sdVyVBJhdWoELSucGvIzssW6WEBMaNumcTrQe8PqXqmEVQk5B01RboYpyMxxezy0NMeh/0+o2qZcWP2q+1CXhMKqhMTh9rATElJjDQpaUMcKFrP3mtyoNcC2qU4DURE7vGFVyHlcwSPcSVLStEqheONnD+s0ctsHgVZ5Z5sG1DZNie/ptT/6/qmnjspMGYJO9nF5PONud2neXFGmJgQL1zZ1DhC8jooNq7sbWsrYsCrFmUTTImhaMUZFy6ygTEouJLNNjTFMd3+V5MOqhNLKvKRUdv60d+QhS8zFQGvY1QxTQFOQYTx8oqOsrkXibYxpEW7MAcBO3fDuoSnJfrk/XGmb3rzVHasDfcQLdafu39d+ZkD8a+5BImhZyTOytxuSQe9rCuIXeRfp36htmp547sQFy9HuBildWQ0GQZ3j4Z2v251jwuxKwyOmYtAYwOOzTaxOA+bYHXvPle1uDRtlCJpWAKAwK0en1si2qFzlurZpSnxvDxdWu9zCTxHiE4HKCrffSH66t3EOIHt9cG3Tga8hLWP3wWbL0W5u0VGYIZQ4vJooyGTFIXtlcCSvYBwdlprjbzXJsofhDwKJgxtnZBoSZT8gvcrhliZLXcsZW9gqQ+gxx+O73pbN9dgpefHT+vtf23bGu7FfGCOQc3Dc7t3FS9ZR9py101K7q6H5XBhrYgJBo+xLB/7T2ivjX9vbRw6WbXtuhihD6LJiHxvbtv9jOVaWXvvQo/9888kP35Nx758cQcsKAHC7AMqrsuw5+U1VXY1tKJzHnjdE0LICAFs/rR8Zd5KLWBwYhqmqrfnNu2/MQGUIXVYAoLnH+vKBveKcakKOtHxXtu25tw5/Tvi88EHossJmlry50j9+L35a/5dP9kj/c/KK0GUFAJ7ft5vXrxQkTdauDW+8hMoQoawAwKHmpuf3SfRH6Q2rz355fka0MaZFhLLCDks/qy/Mypl0GzaxuWwfrqqrqT3xtdgfREKIUFY4LLU1LveU8+0EZM/Jb+7a9iwq4zpEE8d3tu6qul0CCuCmWOrYsGqdeW2MaRGnrHDsbDy4NCvnprfs458jLd9V1dWc6erg/61kiWjOMVFcugfZxSDCl5itn9X/+LWtqIwpEFkclx32P9Z/IPDPigurkk1M0oHK2LJJ9E+jUaqWZuVu3/iIAFtA7Ww8WFVb45Lv2hkBEXPMMcGYa/zzptOHW5rmmFNiI9ibvvKhEgyrpEjCOThUCsW42/3K+p+X3bLI5XYrr7vleHB8dOqbqtoajCRESMI5OLgF1n/6uHZeUirDMJnxiewolaKUNB2Ykbg9Hm5prqWu5s1DM/f6WcBIyDl8SYyK/vzxpyNUat9/5NQz7VwQD8PQFNXnsMdF6r5qb3nig39hJAkMKYrD96a6UdqI27Jy71ty28q5C7hF2L7r9MfdbgVNUz6Kae6xZicY608d//U7r+cZzU1W9tZXSGBIURwcFEUpaJrrf2TGJy7PzluSkb0kPSs1Ll5J0+8ebSjJnWOKjlF5hyaNrecLM3N2HPniqQ/fT46N6+hnd+lT0PSMmtUXcqQrjimYl5TybeeliQesmrfw429PGHT6y/Zh1EQIkZM4WC+hqIkWBVdQfP9EnwgtEkor08IwjMtnpfJ1UkBlhByR2+eIlEFxIDcFxYGgOBBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA7kp/wO+99gB7s/mjwAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAOMklEQVR4Xu2da3BU5RnHn3P2muzmtkl2N/c7NwGhJEFIYiqVYkyQKURroVOxtrV2xA/YDx28ZNOZWm1nrILVtl5GQbTV0BlNwFhQQTFAQCsMyCWSG5DLbkKuu0k2u3s6Zw+EDYVk3909t83zGz8YZq/n/Pf/vP/nvO97qIwtmwBBbgSNhwW5GSgOBMWBkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHgs6BkIPOgaBzIOSgcyDoHAg56BwIOgdCDjoHL1DeV1VSoOD+7+qflM+f0gfFEUomzj0DoFHQLgbczLXXdzHAXP1TKYcDrwzlsZmpUNSVs84wkK5X/bUk9ZjVcV9ODEXB5TH3UdtIQ6d945w4DU0f7x09ZrM32kYZhmkedCppys0qhqGA1ZPUoHBj/CDRqSj7OJOfGPGP0tQvu+x3JOv1s5KgzQZ67fiAXaXTQqzOc6mPTo5zd1xWmGIgRgetVqBgwc7TQ053kO/OKyiOoLg7PerllVkHW/uLcw2gjwDrAKiVMDbOmoHP+MLjAZpmHQIAKIpyexiFKRZ6BkCrHhkcOdQ9su/S0DtN/UF9FB5AcQROdb7pgdJsGHHCoANoCjxklcHFsBVFqdNChNreNfBB29DBzuE97UMTRUp0cMwRCEtNkdX55jm3pkK77crzCZXhzTIUO1oZccKIU6fXrC9JWHHeuqd9aGLQKjooDmIeW5CwuSgNVMpryggepwu6+szzU9+zO3tH3I98cQkgADMKMSgOAvJi1JYCU9HSbLhgA88owTP9pKV7SUKk4paMLfbxZ762kptRiEFx+MuGWbHV+SZlkgHarP4+hxyaAjjd/qvS7DtT9A3djicbu8hfI2SgOKbHoFFUF5hWl+RAdz/7H59cyTg9g9kJkdlpcXvahxq67Hy+4VTIoVEnKmXpUfXlWauLsuFCDzsyEAaGgXE30FR1vlEpXscdxTEVlgLTK/fONyZGwaVeYVQxiX573sI0S4FZhLf2guK4MYXGyPry7I0rZ7N1xM7D2NNP2m0/vT27IiPaz4eHFhxz3IDHFsRvLkoPcVgNmEHH7wtMjVa7dUToXjs6xyRyY9Q7V6Rtvmc+OMagbzjgExpKHGOGHJMlX4TiguK4xoa82PryrKLFqWxYFb3J4Mul3ruLsx+YbQil5vwAxcFi0Ci2FSf/oXKBUqvmO6wGSFd/deWCDL0qwKcHBI452LBqyTebZpnYsCpVXE5nx8lLbcPjQl6Wm+nOYck3vlI532TUw0UxwqrfKCk6fbZpZapeyMtyM1cchcaIj8qzNq6aA9Z+GBYvrPrPoOPVu3Oj1Ar/nxEkM7SsPDY/fnOxN6y2Xb3mLnncgyPn+seGnG7yqSMBMuOcIzda/fYP0jevkVJY9Q+Fkp6bGrMoQStYkJpZ4mDDakVW8aIUyYVVf/AwEKnZviLdn8eGhJlSVgwahSXffM/t2QJcWeUPj3XgdN+YYPOAZoQ4ytL0lgKzaZZZymHVH2itammyIl2vah8e9+fxQRL+4qgqSH6wKBlG3RIPq/4wPupU6bQDTo+CmrRciifCWRyFmTnVFZVzkwxwYiuoxLmwGVpUSgVERQ54A4sAhK04Nt2x6vE7y68cwYQCsDWCOkaAA8ovWnX7eTZ7CxNYwlAcuYkmy+rK4pzZ186TqRgcHTDaAwoNvyePT9iFUo6xhi72WrEwTfRwE8f6wqLqikqVYnIbUaFm9dG6i51+J6+F7j6w00tjIkuT2aGoME308BGHIVJnWV15z8IlN/71RmWCcRl0HgBNLJ8/b35xXR5OjGB1r6QpF/+lJUzEcdctt1oqKs3RU44qTMvB0QnDraCM5Pcc8oYyKqK7h52M7hHEOsJBHFUV6x5cVurXGTEXQ3MHMB6g5NkajtQcs+GA1D8KM3MsFZXzklL8ezhAhInVx8V6UMuvuLBL9XuHGq0Of79s0MjYOSaFVf+JX8wml75ToIry/0lSgI7WQpKhdV8bRVHcbg58I0tx5CSaLBXrSnLnBHh0TMVg7wD3CNCCzroLBjfDKBxjv3z1yIFO4RbAya/0ri8sqt/0u8CVAcB2w8wl4BoJ5mwJDGsV5rjT/WO+O9DxjZycIy5SZ6lYt+bW/BAclNg5bHGRT9tUqVSAWnlRkOttE8hGHH6FVSLk1TalqI6TF4m+X/DIo6w8Xb72b+sfmqaNQQrXNmXcArUbg4GmIDpyfwc72sCycg3isEoE2zZdDp37pd42VSuPN9m2ePfq8N3YlG8kXVYe/f4Pf7uygt9DYFrGDj6k3DY1xsCAg9ulgwbw8Hs4JiFRcQQbVomQcNvU5fFYm21r6ttso+zWIEIqQ6JbMKwvWB5sWCWCa5uODxI9SRiUGUatkraNunx3NRUMaTlHKMMqEdJsmyYbPjnU8uf/shdThGmJXoeExLFq3sLq1feGOJL4j6mEvWbrckikberxwEh7z0P7hY6vvkglyj5dvvbvG34hmjLYtmk0m2wl0jZVK+mMhKa+0QgFLeL9FcR3jqKcWU+U/Yjgyip/SKRtaozxdPVX7Tq541wff9/VH8QXR/mC70lCGRxX2qY2UGj9OXwhhqYgLfHQkVbLsa6z/eziJXERuayUzppbkuszE1h02LZpCTsbSJBr4pOI04NO+0LtqZ/sa5OCMtjJiCKejvuW3PantetF/AA3JipDhLZpeuLZ4xcsx7oPdQs3l2daxBRHWlw8F9JECfFTIWTbVKcBfcT2vWctx7r5nzJMhjji0KpUz6y5f+3iAu7mNGQfWRiEaZumxPec77LUn69rGxLmaxEhzphjaVYupwzpwnfbVK2EtIS6hpa76lqkqQxxxhym6Jh1iwslWlB8YdumndB3MvSzTdmwOmD598ntZ0UOq1MjQllZlpXHLT2SaEHxhUu2IWybcmG1sdVyVBJhdWoELSucGvIzssW6WEBMaNumcTrQe8PqXqmEVQk5B01RboYpyMxxezy0NMeh/0+o2qZcWP2q+1CXhMKqhMTh9rATElJjDQpaUMcKFrP3mtyoNcC2qU4DURE7vGFVyHlcwSPcSVLStEqheONnD+s0ctsHgVZ5Z5sG1DZNie/ptT/6/qmnjspMGYJO9nF5PONud2neXFGmJgQL1zZ1DhC8jooNq7sbWsrYsCrFmUTTImhaMUZFy6ygTEouJLNNjTFMd3+V5MOqhNLKvKRUdv60d+QhS8zFQGvY1QxTQFOQYTx8oqOsrkXibYxpEW7MAcBO3fDuoSnJfrk/XGmb3rzVHasDfcQLdafu39d+ZkD8a+5BImhZyTOytxuSQe9rCuIXeRfp36htmp547sQFy9HuBildWQ0GQZ3j4Z2v251jwuxKwyOmYtAYwOOzTaxOA+bYHXvPle1uDRtlCJpWAKAwK0en1si2qFzlurZpSnxvDxdWu9zCTxHiE4HKCrffSH66t3EOIHt9cG3Tga8hLWP3wWbL0W5u0VGYIZQ4vJooyGTFIXtlcCSvYBwdlprjbzXJsofhDwKJgxtnZBoSZT8gvcrhliZLXcsZW9gqQ+gxx+O73pbN9dgpefHT+vtf23bGu7FfGCOQc3Dc7t3FS9ZR9py101K7q6H5XBhrYgJBo+xLB/7T2ivjX9vbRw6WbXtuhihD6LJiHxvbtv9jOVaWXvvQo/9888kP35Nx758cQcsKAHC7AMqrsuw5+U1VXY1tKJzHnjdE0LICAFs/rR8Zd5KLWBwYhqmqrfnNu2/MQGUIXVYAoLnH+vKBveKcakKOtHxXtu25tw5/Tvi88EHossJmlry50j9+L35a/5dP9kj/c/KK0GUFAJ7ft5vXrxQkTdauDW+8hMoQoawAwKHmpuf3SfRH6Q2rz355fka0MaZFhLLCDks/qy/Mypl0GzaxuWwfrqqrqT3xtdgfREKIUFY4LLU1LveU8+0EZM/Jb+7a9iwq4zpEE8d3tu6qul0CCuCmWOrYsGqdeW2MaRGnrHDsbDy4NCvnprfs458jLd9V1dWc6erg/61kiWjOMVFcugfZxSDCl5itn9X/+LWtqIwpEFkclx32P9Z/IPDPigurkk1M0oHK2LJJ9E+jUaqWZuVu3/iIAFtA7Ww8WFVb45Lv2hkBEXPMMcGYa/zzptOHW5rmmFNiI9ibvvKhEgyrpEjCOThUCsW42/3K+p+X3bLI5XYrr7vleHB8dOqbqtoajCRESMI5OLgF1n/6uHZeUirDMJnxiewolaKUNB2Ykbg9Hm5prqWu5s1DM/f6WcBIyDl8SYyK/vzxpyNUat9/5NQz7VwQD8PQFNXnsMdF6r5qb3nig39hJAkMKYrD96a6UdqI27Jy71ty28q5C7hF2L7r9MfdbgVNUz6Kae6xZicY608d//U7r+cZzU1W9tZXSGBIURwcFEUpaJrrf2TGJy7PzluSkb0kPSs1Ll5J0+8ebSjJnWOKjlF5hyaNrecLM3N2HPniqQ/fT46N6+hnd+lT0PSMmtUXcqQrjimYl5TybeeliQesmrfw429PGHT6y/Zh1EQIkZM4WC+hqIkWBVdQfP9EnwgtEkor08IwjMtnpfJ1UkBlhByR2+eIlEFxIDcFxYGgOBBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA0HnQMhB50DQORBy0DkQdA6EHHQOBJ0DIQedA7kp/wO+99gB7s/mjwAAAABJRU5ErkJggg==">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6f8;--card:#fff;--ink:#15181d;--muted:#6b7280;--line:#e5e7eb;
+  --accent:#1f7a6d;--accent-soft:#e3f2ef;--warn:#b45309;--warn-soft:#fef3c7;
+  --due:#c2410c;--due-soft:#ffedd5;--danger:#b91c1c;--radius:16px;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1115;--card:#181b21;--ink:#eef0f3;--muted:#9aa1ad;--line:#2a2e36;
+  --accent:#4fc1ad;--accent-soft:#16302c;--warn:#f0b452;--warn-soft:#33270f;
+  --due:#fb923c;--due-soft:#3a2010;--danger:#f87171;}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:18px 16px 110px}
+header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+h1{font-size:24px;margin:0;font-weight:700;letter-spacing:-.02em}
+.clock{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.status{font-size:12px;color:var(--muted);margin:-6px 0 14px}
+.alerts-bar{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:14px;font-size:13px;color:var(--muted)}
+.alerts-bar b{color:var(--ink)}
+.alerts-bar button{margin-left:auto}
+.banner{background:var(--due-soft);color:var(--due);border-radius:12px;padding:12px 14px;margin-bottom:14px;font-weight:600;font-size:14px;display:none}
+.banner.show{display:block;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.75}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.card.due{border-color:var(--due);box-shadow:0 0 0 3px var(--due-soft)}
+.row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.name{font-size:18px;font-weight:600}
+.dose{color:var(--muted);font-size:14px;margin-top:2px}
+.pill{font-size:12px;font-weight:600;padding:4px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.pill.due{background:var(--due-soft);color:var(--due)}
+.next{margin-top:14px;display:flex;justify-content:space-between;align-items:flex-end}
+.next .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.next .big{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.next .cd{font-size:14px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.bar{height:6px;background:var(--line);border-radius:6px;margin-top:10px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--accent);border-radius:6px;transition:width .5s}
+.card.due .bar>i{background:var(--due)}
+.meta{font-size:13px;color:var(--muted);margin-top:10px}
+.warn{font-size:13px;background:var(--warn-soft);color:var(--warn);padding:8px 10px;border-radius:10px;margin-top:10px}
+.actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+button{font:inherit;border:0;cursor:pointer;border-radius:12px;padding:10px 14px;font-weight:600;font-size:14px;background:var(--bg);color:var(--ink)}
+button.primary{background:var(--accent);color:#fff;flex:1}
+@media (prefers-color-scheme:dark){button.primary{color:#0b1412}}
+button.ghost{background:transparent;color:var(--muted);padding:10px 8px}
+button.danger{background:transparent;color:var(--danger)}
+button.sm{padding:7px 11px;font-size:13px}
+.empty{text-align:center;color:var(--muted);padding:40px 20px;font-size:15px}
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom));background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:999px;font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:flex-end;justify-content:center;z-index:10}
+.sheet-bg.show{display:flex}
+.sheet{background:var(--card);width:100%;max-width:560px;border-radius:20px 20px 0 0;padding:20px 18px calc(22px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto}
+.sheet h2{margin:0 0 14px;font-size:19px}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px;font-weight:500}
+input,textarea{width:100%;font:inherit;font-size:16px;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{min-height:60px;resize:vertical}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chips button{padding:6px 11px;font-size:13px;border:1px solid var(--line);background:transparent}
+.chips button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.check{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;color:var(--ink)}
+.check input{width:auto}
+.sheet .actions{margin-top:20px}
+.hist li{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;font-variant-numeric:tabular-nums}
+.hist{list-style:none;padding:0;margin:0}
+.note{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.5}
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20}
+.toast.show{opacity:1}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:999px;font-size:14px}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tabs button .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--due);margin-left:6px;vertical-align:middle}
+.patient{background:var(--accent-soft);border-radius:var(--radius);padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.patient .who{font-size:13px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.patient .cond{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-top:2px}
+.patient .cond.none{font-size:15px;font-weight:500;color:var(--muted)}
+.patient button{margin-left:auto;background:transparent;color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>I miei farmaci</h1>
+    <div class="clock" id="clock"></div>
+  </header>
+  <div class="status" id="status">Caricamento…</div>
+  <div class="alerts-bar" id="alertsBar">
+    <span id="alertsTxt">Avvisi <b>spenti</b></span>
+    <button class="sm" id="alertsBtn">Attiva avvisi</button>
+  </div>
+  <div class="banner" id="banner"></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="patient" id="patient"></div>
+  <div id="list"></div>
+  <p class="note">Gli avvisi (suono, vibrazione, banner) scattano mentre l'app è aperta. Per una notifica anche a telefono bloccato usa i Promemoria o l'app Salute. I dati restano salvati su questo telefono. Gli intervalli li decidi tu: segui sempre la prescrizione o il foglietto illustrativo.</p>
+</div>
+<button class="fab" id="addBtn">+ Aggiungi farmaco</button>
+
+<div class="sheet-bg" id="sheetBg"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const LS_KEY="miei-farmaci-v1";
+let state={patients:[],active:null};
+function normalize(p){
+  if(!p||typeof p!=="object")return null;
+  if(Array.isArray(p.patients))return {patients:p.patients.map(x=>Object.assign({condition:"",meds:[]},x)),active:p.active||null};
+  if(Array.isArray(p.meds))return {patients:[{id:uid(),name:"Io",condition:"",meds:p.meds}],active:null};
+  return null;
+}
+function P(){
+  if(!state.patients.length)state.patients.push({id:uid(),name:"Io",condition:"",meds:[]});
+  let p=state.patients.find(x=>x.id===state.active);
+  if(!p){p=state.patients[0];state.active=p.id;}
+  return p;
+}
+function allMeds(){return state.patients.flatMap(p=>p.meds.map(m=>({m,p})));}
+let ref=null, saving=false, pending=false;
+let alertsOn=false, audioCtx=null;
+const notified=new Set();
+
+/* ---------- helpers ---------- */
+const pad=n=>String(n).padStart(2,"0");
+const hm=t=>{const d=new Date(t);return pad(d.getHours())+":"+pad(d.getMinutes());};
+function dayLabel(t){
+  const d=new Date(t),n=new Date();
+  const a=new Date(d.getFullYear(),d.getMonth(),d.getDate()),b=new Date(n.getFullYear(),n.getMonth(),n.getDate());
+  const diff=Math.round((a-b)/864e5);
+  if(diff===0)return"oggi";if(diff===1)return"domani";if(diff===-1)return"ieri";
+  return d.toLocaleDateString("it-IT",{weekday:"short",day:"numeric",month:"short"});
+}
+function dur(ms){
+  const neg=ms<0;ms=Math.abs(ms);
+  const h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4);
+  const s=h>0?`${h} h ${pad(m)} min`:`${m} min`;
+  return neg?s:s;
+}
+function intervalTxt(h){
+  if(h%24===0&&h>=24)return h===24?"1 volta al giorno":`ogni ${h/24} giorni`;
+  const hh=Math.floor(h),mm=Math.round((h-hh)*60);
+  return "ogni "+(mm?`${hh} h ${mm} min`:`${hh} h`);
+}
+function toLocalInput(t){const d=new Date(t);return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2200);}
+
+function lastTaken(m){return m.history.length?Math.max(...m.history):null;}
+function nextDue(m){const l=lastTaken(m);return l==null?null:l+m.intervalH*36e5;}
+function taken24(m,at){at=at||Date.now();return m.history.filter(t=>t>at-864e5&&t<=at).length;}
+
+/* ---------- storage ---------- */
+function loadLocal(){try{const r=localStorage.getItem(LS_KEY);if(r){const n=normalize(JSON.parse(r));if(n)state=n;}}catch(e){}}
+function saveLocal(){try{localStorage.setItem(LS_KEY,JSON.stringify(state));}catch(e){}}
+async function flush(){
+  if(!ref){return;}
+  if(saving){pending=true;return;}
+  saving=true;
+  try{await ref.set(JSON.parse(JSON.stringify(state)));setStatus("Salvato sul tuo account");}
+  catch(e){setStatus("Salvato solo su questo dispositivo");}
+  saving=false;
+  if(pending){pending=false;flush();}
+}
+function save(){
+  allMeds().forEach(({m})=>{m.history.sort((a,b)=>a-b);if(m.history.length>200)m.history=m.history.slice(-200);});
+  saveLocal();flush();render();
+}
+function setStatus(s){$("#status").textContent=s;}
+
+async function initDb(){
+  if(!window.claude||!window.claude.use){setStatus("Salvato su questo dispositivo");return;}
+  try{
+    const [db,user]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
+    if(!db||!user){setStatus("Salvato su questo dispositivo");return;}
+    const id=await user.id();
+    if(!id){setStatus("Salvato su questo dispositivo");return;}
+    ref=db.doc("data/users/"+id+"/meds");
+    let got=false;
+    const timer=setTimeout(()=>{if(!got)setStatus("Archivio non raggiungibile: uso i dati su questo dispositivo");},10000);
+    ref.onSnapshot(snap=>{
+      if(!snap.metadata.fromCache){got=true;clearTimeout(timer);}
+      if(snap.metadata.hasPendingWrites)return;
+      if(snap.exists){
+        const d=snap.data();
+        const n=normalize(JSON.parse(JSON.stringify(d||{})));if(n){const keep=state.active;state=n;if(keep&&state.patients.some(x=>x.id===keep))state.active=keep;saveLocal();render();}
+        setStatus("Sincronizzato con il tuo account");
+      }else if(!snap.metadata.fromCache){
+        if(allMeds().length){flush();} else setStatus("Sincronizzato con il tuo account");
+      }
+    },()=>{clearTimeout(timer);setStatus("Salvato su questo dispositivo");});
+  }catch(e){setStatus("Salvato su questo dispositivo");}
+}
+
+/* ---------- alerts ---------- */
+function beep(){
+  if(!audioCtx)return;
+  try{
+    const now=audioCtx.currentTime;
+    [0,0.35,0.7].forEach(off=>{
+      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+      o.type="sine";o.frequency.value=880;
+      g.gain.setValueAtTime(0.0001,now+off);
+      g.gain.exponentialRampToValueAtTime(0.3,now+off+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,now+off+0.28);
+      o.connect(g);g.connect(audioCtx.destination);o.start(now+off);o.stop(now+off+0.3);
+    });
+  }catch(e){}
+}
+function fire(m,p){
+  if(alertsOn)beep();
+  try{navigator.vibrate&&navigator.vibrate([300,150,300]);}catch(e){}
+  try{if(window.Notification&&Notification.permission==="granted")new Notification("È ora di "+m.name+(state.patients.length>1?" · "+p.name:""),{body:m.dose||"Dose prevista ora"});}catch(e){}
+}
+$("#alertsBtn").onclick=async()=>{
+  if(alertsOn){alertsOn=false;updateAlertsBar();return;}
+  try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();await audioCtx.resume();}catch(e){}
+  try{if(window.Notification&&Notification.permission==="default")await Notification.requestPermission();}catch(e){}
+  alertsOn=true;updateAlertsBar();beep();toast("Avvisi attivi");
+};
+function updateAlertsBar(){
+  $("#alertsTxt").innerHTML=alertsOn?"Avvisi <b>attivi</b> · suono e banner":"Avvisi <b>spenti</b>";
+  $("#alertsBtn").textContent=alertsOn?"Spegni":"Attiva avvisi";
+}
+
+/* ---------- render ---------- */
+function render(){
+  const now=Date.now();
+  const list=$("#list");
+  renderPatient();
+  const due=allMeds().filter(({m})=>{const nx=nextDue(m);return nx!=null&&nx<=now;});
+  const meds=P().meds;
+  if(!meds.length){list.innerHTML=`<div class="empty">Nessun farmaco ancora.<br>Tocca <b>+ Aggiungi farmaco</b> per iniziare.</div>`;updateBanner(due);return;}
+  const sorted=[...meds].sort((a,b)=>{const na=nextDue(a),nb=nextDue(b);return (na??Infinity)-(nb??Infinity);});
+  list.innerHTML=sorted.map(m=>{
+    const last=lastTaken(m),nx=nextDue(m);
+    const isDue=nx!=null&&nx<=now;
+    const pct=nx==null?0:Math.min(100,Math.max(0,(now-last)/(m.intervalH*36e5)*100));
+    let warn="";
+    if(m.maxDay){const c=taken24(m,now);if(c>=m.maxDay)warn=`<div class="warn">Hai già preso ${c} dosi nelle ultime 24 h (massimo impostato: ${m.maxDay}).</div>`;}
+    const nextBlock=nx==null
+      ?`<div class="next"><div><div class="lbl">Prossima dose</div><div class="big">—</div></div><div class="cd">Non ancora presa</div></div>`
+      :`<div class="next"><div><div class="lbl">Prossima dose</div><div class="big">${hm(nx)}</div></div>
+        <div class="cd">${dayLabel(nx)}<br>${isDue?`<b style="color:var(--due)">in ritardo di ${dur(now-nx)}</b>`:`tra ${dur(nx-now)}`}</div></div>
+        <div class="bar"><i style="width:${pct}%"></i></div>`;
+    return `<div class="card ${isDue?"due":""}">
+      <div class="row"><div><div class="name">${esc(m.name)}</div>${m.dose?`<div class="dose">${esc(m.dose)}</div>`:""}</div>
+      <span class="pill ${isDue?"due":""}">${isDue?"È ora":intervalTxt(m.intervalH)}</span></div>
+      ${nextBlock}
+      <div class="meta">${last?`Ultima: ${hm(last)} ${dayLabel(last)}`:""}${m.maxDay?` · max ${m.maxDay}/24 h`:""}${m.notes?`<br>${esc(m.notes)}`:""}</div>
+      ${warn}
+      <div class="actions">
+        <button class="primary" data-take="${m.id}">✓ Presa ora</button>
+        <button data-takeat="${m.id}">Altra ora</button>
+        <button class="ghost" data-hist="${m.id}">Storico</button>
+        <button class="ghost" data-edit="${m.id}">Modifica</button>
+      </div></div>`;
+  }).join("");
+  updateBanner(due);
+}
+function updateBanner(due){
+  const b=$("#banner");
+  const multi=state.patients.length>1;
+  if(due.length){b.textContent="⏰ È ora di: "+due.map(({m,p})=>m.name+(multi?" ("+p.name+")":"")).join(", ");b.classList.add("show");document.title="⏰ "+due[0].m.name+" — I miei farmaci";}
+  else{b.classList.remove("show");document.title="I miei farmaci";}
+}
+
+/* ---------- actions ---------- */
+function find(id){return P().meds.find(m=>m.id===id);}
+function take(m,t){
+  m.history.push(t);
+  save();
+  toast(`${m.name}: registrata alle ${hm(t)} · prossima ${hm(t+m.intervalH*36e5)}`);
+}
+$("#list").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.take){const m=find(b.dataset.take);if(m.maxDay&&taken24(m)>=m.maxDay){confirmSheet(`Hai già raggiunto ${m.maxDay} dosi nelle ultime 24 h per ${m.name}. Registrare comunque?`,"Registra",()=>take(m,Date.now()));}else take(m,Date.now());}
+  else if(b.dataset.takeat)takeAtSheet(find(b.dataset.takeat));
+  else if(b.dataset.hist)histSheet(find(b.dataset.hist));
+  else if(b.dataset.edit)editSheet(find(b.dataset.edit));
+});
+$("#addBtn").onclick=()=>editSheet(null);
+
+/* ---------- patients ---------- */
+function renderPatient(){
+  const p=P(),now=Date.now();
+  $("#tabs").innerHTML=state.patients.map(x=>{
+    const late=x.meds.some(m=>{const nx=nextDue(m);return nx!=null&&nx<=now;});
+    return `<button data-pt="${x.id}" class="${x.id===p.id?"on":""}">${esc(x.name)}${late?'<span class="dot"></span>':""}</button>`;
+  }).join("")+`<button data-pt="__new">+ Paziente</button>`;
+  $("#patient").innerHTML=`<div><div class="who">${esc(p.name)}</div>
+    <div class="cond ${p.condition?"":"none"}">${p.condition?esc(p.condition):"Aggiungi la patologia"}</div></div>
+    <button class="sm" id="editPt">Modifica</button>`;
+  $("#editPt").onclick=()=>patientSheet(p);
+}
+$("#tabs").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.pt==="__new"){patientSheet(null);return;}
+  state.active=b.dataset.pt;saveLocal();render();
+});
+function patientSheet(p){
+  const isNew=!p;const v=p||{name:"",condition:""};
+  openSheet(`<h2>${isNew?"Nuovo paziente":"Modifica paziente"}</h2>
+    <form id="f">
+      <label>Nome</label><input name="name" required value="${esc(v.name)}" placeholder="es. Mamma">
+      <label>Patologia da trattare</label><input name="condition" value="${esc(v.condition)}" placeholder="es. Faringite batterica">
+      <div class="actions">
+        ${!isNew&&state.patients.length>1?`<button type="button" class="danger" id="del">Elimina</button>`:""}
+        <button type="button" id="cancel">Annulla</button>
+        <button class="primary" type="submit">Salva</button>
+      </div></form>`);
+  const f=$("#f");$("#cancel").onclick=closeSheet;
+  const del=$("#del");
+  if(del)del.onclick=()=>confirmSheet(`Eliminare ${p.name} con tutti i suoi farmaci?`,"Elimina",()=>{state.patients=state.patients.filter(x=>x.id!==p.id);state.active=null;save();toast("Paziente eliminato");},true);
+  f.onsubmit=e=>{e.preventDefault();const name=f.name.value.trim();if(!name){toast("Inserisci il nome");return;}
+    if(isNew){const np={id:uid(),name,condition:f.condition.value.trim(),meds:[]};state.patients.push(np);state.active=np.id;}
+    else{p.name=name;p.condition=f.condition.value.trim();}
+    closeSheet();save();toast("Salvato");};
+}
+
+/* ---------- sheets ---------- */
+const bg=$("#sheetBg"),sheet=$("#sheet");
+function openSheet(html){sheet.innerHTML=html;bg.classList.add("show");}
+function closeSheet(){bg.classList.remove("show");}
+bg.addEventListener("click",e=>{if(e.target===bg)closeSheet();});
+
+function editSheet(m){
+  const isNew=!m;
+  const v=m||{name:"",dose:"",intervalH:8,maxDay:"",notes:""};
+  openSheet(`<h2>${isNew?"Nuovo farmaco":"Modifica farmaco"}</h2>
+    <form id="f">
+      <label>Nome</label><input name="name" required value="${esc(v.name)}" placeholder="es. Amoxicillina">
+      <label>Dose</label><input name="dose" value="${esc(v.dose)}" placeholder="es. 1 compressa da 1 g">
+      <label>Ogni quante ore</label><input name="intervalH" type="number" step="0.25" min="0.25" required value="${v.intervalH}">
+      <div class="chips" id="chips">${[4,6,8,12,24].map(h=>`<button type="button" data-h="${h}" class="${v.intervalH==h?"on":""}">${h} h</button>`).join("")}</div>
+      <label>Massimo dosi in 24 h (facoltativo)</label><input name="maxDay" type="number" min="1" value="${v.maxDay||""}" placeholder="es. 3">
+      ${isNew?`<label>Prima assunzione</label><input name="first" type="datetime-local" value="${toLocalInput(Date.now())}">
+      <div class="check"><input type="checkbox" id="notyet"><label for="notyet" style="margin:0;color:inherit">Non l'ho ancora presa</label></div>`:""}
+      <label>Note (facoltativo)</label><textarea name="notes" placeholder="es. a stomaco pieno, fino a venerdì">${esc(v.notes)}</textarea>
+      <div class="actions">
+        ${isNew?"":`<button type="button" class="danger" id="del">Elimina</button>`}
+        <button type="button" id="cancel">Annulla</button>
+        <button class="primary" type="submit">Salva</button>
+      </div>
+    </form>`);
+  const f=$("#f");
+  $("#chips").onclick=e=>{const b=e.target.closest("button");if(!b)return;f.intervalH.value=b.dataset.h;[...$("#chips").children].forEach(c=>c.classList.toggle("on",c===b));};
+  f.intervalH.oninput=()=>[...$("#chips").children].forEach(c=>c.classList.toggle("on",c.dataset.h==f.intervalH.value));
+  $("#cancel").onclick=closeSheet;
+  if(!isNew)$("#del").onclick=()=>confirmSheet(`Eliminare ${m.name} e il suo storico?`,"Elimina",()=>{const p=P();p.meds=p.meds.filter(x=>x.id!==m.id);save();toast("Eliminato");},true);
+  f.onsubmit=e=>{
+    e.preventDefault();
+    const iv=parseFloat(f.intervalH.value);
+    if(!(iv>0)){toast("Intervallo non valido");return;}
+    const data={name:f.name.value.trim(),dose:f.dose.value.trim(),intervalH:iv,maxDay:f.maxDay.value?parseInt(f.maxDay.value,10):null,notes:f.notes.value.trim()};
+    if(!data.name){toast("Inserisci il nome");return;}
+    if(isNew){
+      const hist=[];
+      if(!$("#notyet").checked&&f.first.value){const t=new Date(f.first.value).getTime();if(!isNaN(t))hist.push(t);}
+      P().meds.push(Object.assign({id:uid(),history:hist},data));
+    }else Object.assign(m,data);
+    closeSheet();save();toast("Salvato");
+  };
+}
+function takeAtSheet(m){
+  openSheet(`<h2>${esc(m.name)} — quando l'hai presa?</h2>
+    <form id="f"><input name="t" type="datetime-local" value="${toLocalInput(Date.now())}" max="${toLocalInput(Date.now()+6e4)}">
+    <div class="actions"><button type="button" id="cancel">Annulla</button><button class="primary" type="submit">Registra</button></div></form>`);
+  $("#cancel").onclick=closeSheet;
+  $("#f").onsubmit=e=>{e.preventDefault();const t=new Date(e.target.t.value).getTime();if(isNaN(t)){toast("Orario non valido");return;}if(t>Date.now()+6e4){toast("L'orario è nel futuro");return;}closeSheet();take(m,t);};
+}
+function histSheet(m){
+  const items=[...m.history].sort((a,b)=>b-a);
+  openSheet(`<h2>Storico · ${esc(m.name)}</h2>
+    ${items.length?`<ul class="hist">${items.slice(0,60).map(t=>`<li><span>${dayLabel(t)} · ${hm(t)}</span><button class="ghost sm" data-rm="${t}">Rimuovi</button></li>`).join("")}</ul>`:`<div class="empty">Nessuna assunzione registrata.</div>`}
+    <div class="actions"><button class="primary" id="cancel">Chiudi</button></div>`);
+  $("#cancel").onclick=closeSheet;
+  sheet.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{const t=+b.dataset.rm;const i=m.history.indexOf(t);if(i>-1)m.history.splice(i,1);save();histSheet(m);});
+}
+function confirmSheet(msg,label,fn,danger){
+  openSheet(`<h2>${esc(msg)}</h2><div class="actions"><button id="cancel">Annulla</button><button class="${danger?"danger":"primary"}" id="ok">${esc(label)}</button></div>`);
+  $("#cancel").onclick=closeSheet;$("#ok").onclick=()=>{closeSheet();fn();};
+}
+
+/* ---------- tick ---------- */
+function tick(){
+  const n=new Date();$("#clock").textContent=hm(n)+" · "+n.toLocaleDateString("it-IT",{weekday:"short",day:"numeric",month:"short"});
+  const now=n.getTime();
+  allMeds().forEach(({m,p})=>{const nx=nextDue(m);if(nx!=null&&nx<=now&&now-nx<12*36e5){const k=m.id+":"+nx;if(!notified.has(k)){notified.add(k);fire(m,p);}}});
+  if(!bg.classList.contains("show"))render();
+}
+loadLocal();
+// don't re-fire alerts already overdue at load
+allMeds().forEach(({m})=>{const nx=nextDue(m);if(nx!=null&&nx<=Date.now())notified.add(m.id+":"+nx);});
+render();tick();setInterval(tick,15000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)tick();});
+setStatus("Salvato su questo dispositivo");
+initDb();
+})();
+</script>
+</body>
+</html>

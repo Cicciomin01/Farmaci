@@ -90,7 +90,13 @@ textarea{min-height:60px;resize:vertical}
 .patient .who{font-size:13px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
 .patient .cond{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-top:2px}
 .patient .cond.none{font-size:15px;font-weight:500;color:var(--muted)}
-.patient button{margin-left:auto;background:transparent;color:var(--accent)}
+.patient{flex-wrap:wrap}
+.patient>div:first-child{flex:1;min-width:0}
+.patient button{margin-left:auto;background:transparent;color:var(--accent);align-self:flex-start}
+.symtags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.symtags span{font-size:12px;background:var(--card);color:var(--ink);padding:4px 9px;border-radius:999px;border:1px solid var(--line)}
+.symgrp{font-size:12px;color:var(--muted);margin:12px 0 4px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.symgrp small{text-transform:none;letter-spacing:0;font-weight:400}
 </style>
 </head>
 <body>
@@ -306,7 +312,8 @@ function renderPatient(){
     return `<button data-pt="${x.id}" class="${x.id===p.id?"on":""}">${esc(x.name)}${late?'<span class="dot"></span>':""}</button>`;
   }).join("")+`<button data-pt="__new">+ Paziente</button>`;
   $("#patient").innerHTML=`<div><div class="who">${esc(p.name)}</div>
-    <div class="cond ${p.condition?"":"none"}">${p.condition?esc(p.condition):"Aggiungi la patologia"}</div></div>
+    <div class="cond ${p.condition?"":"none"}">${p.condition?esc(p.condition):"Aggiungi la patologia"}</div>
+    ${(p.symptoms&&p.symptoms.length)?`<div class="symtags">${p.symptoms.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:(p.condition?`<div class="dose" style="margin-top:6px">Nessun sintomo indicato</div>`:"")}</div>
     <button class="sm" id="editPt">Modifica</button>`;
   $("#editPt").onclick=()=>patientSheet(p);
 }
@@ -315,23 +322,50 @@ $("#tabs").addEventListener("click",e=>{
   if(b.dataset.pt==="__new"){patientSheet(null);return;}
   state.active=b.dataset.pt;saveLocal();render();
 });
+const SYM_GROUPS=[
+  {t:"Naso",one:false,items:["Raffreddore","Naso chiuso","Congestione nasale"]},
+  {t:"Colore del muco",one:true,items:["Muco trasparente","Muco giallastro"]},
+  {t:"Febbre",one:true,items:["Febbre > 37 °C","Febbre > 38 °C","Febbre > 39 °C","Febbre > 40 °C"]},
+  {t:"Tosse",one:false,items:["Tosse secca","Tosse grassa"]},
+  {t:"Gola e bocca",one:false,items:["Tonsille gonfie","Afte","Ascessi sulle tonsille"]},
+  {t:"Orecchie",one:true,items:["Otalgia monolaterale","Otalgia bilaterale"]},
+];
 function patientSheet(p){
-  const isNew=!p;const v=p||{name:"",condition:""};
+  const isNew=!p;const v=p||{name:"",condition:"",symptoms:[]};
+  const sel=new Set(v.symptoms||[]);
+  const preset=new Set(SYM_GROUPS.flatMap(g=>g.items));
+  const extra=[...sel].filter(x=>!preset.has(x));
   openSheet(`<h2>${isNew?"Nuovo paziente":"Modifica paziente"}</h2>
     <form id="f">
       <label>Nome</label><input name="name" required value="${esc(v.name)}" placeholder="es. Mamma">
       <label>Patologia da trattare</label><input name="condition" value="${esc(v.condition)}" placeholder="es. Faringite batterica">
+      <label>Sintomi</label>
+      <div id="syms">${SYM_GROUPS.map((g,gi)=>`<div class="symgrp">${g.t}${g.one?" <small>(una scelta)</small>":""}</div>
+        <div class="chips" data-g="${gi}">${g.items.map(x=>`<button type="button" data-s="${esc(x)}" class="${sel.has(x)?"on":""}">${esc(x)}</button>`).join("")}</div>`).join("")}</div>
+      <label>Altri sintomi (separati da virgola)</label><input name="extra" value="${esc(extra.join(", "))}" placeholder="es. mal di testa, spossatezza">
       <div class="actions">
         ${!isNew&&state.patients.length>1?`<button type="button" class="danger" id="del">Elimina</button>`:""}
         <button type="button" id="cancel">Annulla</button>
         <button class="primary" type="submit">Salva</button>
       </div></form>`);
   const f=$("#f");$("#cancel").onclick=closeSheet;
+  $("#syms").onclick=e=>{
+    const b=e.target.closest("button[data-s]");if(!b)return;
+    const g=SYM_GROUPS[+b.parentNode.dataset.g];const x=b.dataset.s;
+    if(sel.has(x)){sel.delete(x);b.classList.remove("on");}
+    else{
+      if(g.one)g.items.forEach(y=>{sel.delete(y);});
+      if(g.one)[...b.parentNode.children].forEach(c=>c.classList.remove("on"));
+      sel.add(x);b.classList.add("on");
+    }
+  };
   const del=$("#del");
   if(del)del.onclick=()=>confirmSheet(`Eliminare ${p.name} con tutti i suoi farmaci?`,"Elimina",()=>{state.patients=state.patients.filter(x=>x.id!==p.id);state.active=null;save();toast("Paziente eliminato");},true);
   f.onsubmit=e=>{e.preventDefault();const name=f.name.value.trim();if(!name){toast("Inserisci il nome");return;}
-    if(isNew){const np={id:uid(),name,condition:f.condition.value.trim(),meds:[]};state.patients.push(np);state.active=np.id;}
-    else{p.name=name;p.condition=f.condition.value.trim();}
+    const order=SYM_GROUPS.flatMap(g=>g.items);
+    const syms=order.filter(x=>sel.has(x)).concat(f.extra.value.split(",").map(x=>x.trim()).filter(Boolean));
+    if(isNew){const np={id:uid(),name,condition:f.condition.value.trim(),symptoms:syms,meds:[]};state.patients.push(np);state.active=np.id;}
+    else{p.name=name;p.condition=f.condition.value.trim();p.symptoms=syms;}
     closeSheet();save();toast("Salvato");};
 }
 
